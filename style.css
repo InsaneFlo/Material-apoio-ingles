@@ -181,6 +181,54 @@ button:hover {
   background: #357abd;
 }
 
+.quiz-section {
+  margin: 40px 20px;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e0e6f0;
+  text-align: center;
+}
+
+#question {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answer-btn {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #4a90e2;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.answer-btn:hover {
+  background: #357abd;
+}
+
+.correct {
+  background: #2ecc71 !important;
+}
+
+.wrong {
+  background: #e74c3c !important;
+}
+
+#feedback {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 @media(max-width: 600px) {
   #alphabet .alphabet-grid {
     grid-template-columns: 1fr;
