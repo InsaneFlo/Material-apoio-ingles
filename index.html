@@ -15,8 +15,8 @@
 <div id="menu" class="container">
 
 <div class="card" onclick="openPage('alphabet')">
-    <h3>Alfabeto</h3>
-    <p>De A até Z</p>
+    <h3>Alphabet</h3>
+    <p>From A to Z</p>
 </div>
 
 <div class="card" onclick="openPage('pronouns')">
@@ -25,28 +25,48 @@
 </div>
 
 <div class="card" onclick="openPage('sentences')">
-  <h3>Frases</h3>
-  <p>Positivas, Negativas & Perguntas</p>
+  <h3>Sentences</h3>
+  <p>Positive, Negative & Questions</p>
+</div>
+
+<div class="card" onclick="openPage('thirdPerson')">
+  <h3>Third Person Singular (Present)</h3>
+  <p>Work<b>s</b>, Eat<b>s</b>,...</p>
 </div>
 
 <div class="card" onclick="openPage('numbers')">
-  <h3>Números</h3>
-  <p>De 0 até 1000</p>
+  <h3>Numbers</h3>
+  <p>From 0 to 1000</p>
+</div>
+
+<div class="card" onclick="openPage('dates')">
+  <h3>Dates</h3>
+  <p>When were you born?</p>
+</div>
+
+<div class="card" onclick="openPage('math')">
+  <h3>Math</h3>
+  <p>Plus, minus,...</p>
+</div>
+
+<div class="card" onclick="openPage('time')">
+  <h3>Time</h3>
+  <p>What time is it?</p>
 </div>
 
 <div class="card" onclick="openPage('days')">
-  <h3>Dias da Semana</h3>
-  <p>De Segunda ao Domingo</p>
+  <h3>Days of the Week</h3>
+  <p>From Monday to Sunday</p>
 </div>
 
 <div class="card" onclick="openPage('months')">
-  <h3>Os Meses</h3>
-  <p>Janeiro a Dezembro</p>
+  <h3>Months</h3>
+  <p>January to December</p>
 </div>
 
 <div class="card" onclick="openPage('articlesAAn')">
   <h3>A / An</h3>
-  <p>Artigos indefinidos</p>
+  <p>Indefinite Articles</p>
 </div>
 
 <div class="card" onclick="openPage('demonstratives')">
@@ -66,17 +86,27 @@
 
 <div class="card" onclick="openPage('thereIsAre')">
     <h3>There is / There are</h3>
-    <p>Existência de algo</p>
+    <p>Existence of something</p>
 </div>
 
 <div class="card" onclick="openPage('verbToBe')">
     <h3>Verb "To Be"</h3>
-    <p>am, is, are... No presente simples</p>
+    <p>am, is, are... In the simple present</p>
+</div>
+
+<div class="card" onclick="openPage('frequency')">
+  <h3>Adverb of Frequency</h3>
+  <p>Always, never...</p>
+</div>
+
+<div class="card" onclick="openPage('frequencyPosition')">
+  <h3> Adverb of Frequency Position</h3>
+  <p>Where to use</p>
 </div>
 
 <div class="card" onclick="openPage('comparatives')">
   <h3>Comparatives</h3>
-  <p>Comparando duas coisas</p>
+  <p>Comparing two things</p>
 </div>
 
 <div class="card" onclick="openPage('superlatives')">
@@ -86,12 +116,12 @@
 
 <div class="card" onclick="openPage('presentContinuous')">
   <h3>Present Continuous</h3>
-  <p>Ações que estão acontecendo no momento</p>
+  <p>Actions happening now</p>
 </div>
 
 <div class="card" onclick="openPage('pastSimple')">
   <h3>Past Simple</h3>
-  <p>Ações do passado</p>
+  <p>Past actions</p>
 </div>
 
 </div>
@@ -1244,17 +1274,19 @@
     <p class="subtitle">The best, the biggest</p>
 
     <div class="box">
-      <h2>📌 What is Superlative?</h2>
-      <p>Used to compare ONE with ALL.</p>
+      <h2>O que são os superlativos?</h2>
+      <p>Usados para comparar uma coisa com todas as outras.</p>
     </div>
 
     <div class="box">
-      <h2>🧱 Structure</h2>
+      <h2>Estrutura</h2>
       <p><b>the + adjective + est</b></p>
-
+      <br>
       <ul>
         <li>fast → the fastest</li>
+        <br>
         <li>tall → the tallest</li>
+        <br>
         <li>small → the smallest</li>
       </ul>
     </div>
@@ -1310,6 +1342,474 @@
     <div class="box highlight">
       <h2>Dica</h2>
       <p>Devemos sempre usar <b>the</b> e <b>est</b> para mostrar o superlativo.</p>
+    </div>
+  </div>
+</div>
+<div id="thirdPerson" class="page">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <div class="lesson">
+    <h1>Third Person (He / She / It)</h1>
+    <p class="subtitle">Terceira pessoa no presente</p>
+
+    <div class="box">
+      <h2>O que é a terceira pessoa do singular?</h2>
+      <br>
+      <p>No <b>Present Simple</b>, usamos uma regra especial para os pronomes:</p>
+      <br>
+      <p><b>He / She / It</b></p>
+      <br>
+      <p>Em geral, devemos adicionar <b>S</b> ao verbo.</p>
+    </div>
+
+    <div class="box">
+      <h2>Regra básica</h2>
+      <br>
+      <p><b>He / She / It + verbo + S</b></p>
+      <br>
+      <ul>
+        <li>I work → He <b>works</b></li>
+        <br>
+        <li>You play → She <b>plays</b></li>
+        <br>
+        <li>They eat → It <b>eats</b></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Quando usar ES</h2>
+      <br>
+      <p>Adicionamos <b>ES</b> quando o verbo termina em:</p>
+      <br>
+      <ul>
+        <li><b>ch</b> → watch → watches (watchis)</li>
+        <br>
+        <li><b>sh</b> → wash → washes (washis)</li>
+        <br>
+        <li><b>ss</b> → pass → passes (passis)</li>
+        <br>
+        <li><b>x</b> → fix → fixes (fixis)</li>
+        <br>
+        <li><b>o</b> → go → goes (gois)</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>🔤 Verbos com Y</h2>
+      <br>
+      <p>Se terminar em <b>consoante + Y</b> → troca o "y"por <b>IES</b></p>
+      <br>
+      <ul>
+        <li>study → studies (stedies)</li>
+        <br>
+        <li>try → tries (trais)</li>
+      </ul>
+      <br>
+      <p>Se for vogal + Y → só adiciona S</p>
+      <br>
+      <ul>
+        <li>play → plays (plais)</li>
+        <br>
+        <li>buy → buys (bais)</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Negativo</h2>
+      <br>
+      <p><b>He / She / It + does not + verbo</b></p>
+      <br>
+      <ul>
+        <li>He does not work</li>
+        <br>
+        <li>She does not study</li>
+      </ul>
+      <br>
+      <p>Contração: <b>doesn't</b> (dosent) </p>
+    </div>
+
+    <div class="box">
+      <h2></h2>Pergunta</h2>
+      <br>
+      <p><b>Does + he/she/it + verbo?</b></p>
+      <br>
+      <ul>
+        <li>Does he work?</li>
+        <br>
+        <li>Does she study?</li>
+      </ul>
+    </div>
+
+    <div class="box highlight">
+      <h2>Dica</h2>
+      <br>
+      <p>Depois de <b>does</b> ou <b>doesn't</b>, o verbo volta ao normal!</p>
+      <br>
+      <ul>
+        <li>❌ Does he works?</li>
+        <br>
+        <li>✅ Does he work?</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Mais Exemplos:</h2>
+      <br>
+      <ul>
+        <li>He works every day.</li>
+        <br>
+        <li>She doesn't study English.</li>
+        <br>
+        <li>The cat eats a lot.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="frequency" class="page">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <div class="lesson">
+    <h1>Frequency</h1>
+    <p class="subtitle">Advérbios de frequência</p>
+
+    <div class="box">
+      <h2>O que são advérbios de frequência?</h2>
+      <br>
+      <p>Palavras que mostram <b>com que frequência</b> algo acontece.</p>
+    </div>
+
+    <div class="box">
+      <h2>Principais advérbios</h2>
+      <br>
+      <ul>
+        <li><b>Always</b> → sempre (olweis)</li>
+        <br>
+        <li><b>Usually</b> → geralmente (ujueli)</li>
+        <br>
+        <li><b>Often</b> → frequentemente (ofen)</li>
+        <br>
+        <li><b>Sometimes</b> → às vezes (sometaims)</li>
+        <br>
+        <li><b>Rarely</b> → raramente (reirli)</li>
+        <br>
+        <li><b>Never</b> → nunca</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Exemplos</h2>
+      <br>
+      <ul>
+        <li>I always study</li>
+        <br>
+        <li>She usually works</li>
+        <br>
+        <li>They sometimes go out</li>
+        <br>
+        <li>He never drinks coffee</li>
+      </ul>
+    </div>
+    <div class="box highlight">
+      <h2>Dica</h2>
+      <br>
+      <p>Advérbios como <b>Sometimes</b>, podem ficar tanto no <b>começo</b> como no <b>final</b> da frase:</p>
+      <br>
+      <p> Sometimes, they drink beer.</p>
+      <br>
+      <p>They drink beer, sometimes.</p>
+    </div>
+  </div>
+</div>
+<div id="frequencyPosition" class="page">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <div class="lesson">
+    <h1>Frequency Position</h1>
+    <p class="subtitle">Onde usar na frase</p>
+
+    <div class="box">
+      <h2>Regra principal</h2>
+      <br>
+      <p>O advérbio vem <b>antes do verbo</b></p>
+      <br>
+      <ul>
+        <li>I <b>always</b> study</li>
+        <br>
+        <li>She <b>usually</b> works</li>
+        <br>
+        <li>They <b>never</b> eat pizza</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Com o verbo "to be"</h2>
+      <br>
+      <p>O advérbio vem <b>depois</b></p>
+      <br>
+      <ul>
+        <li>I am <b>always</b> tired</li>
+        <br>
+        <li>She is <b>usually</b> happy</li>
+        <br>
+        <li>They are <b>never</b> late</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Em perguntas</h2>
+      <br>
+      <ul>
+        <li>Do you <b>always</b> study?</li>
+        <br>
+        <li>Is she <b>usually</b> late?</li>
+      </ul>
+    </div>
+
+    <div class="box highlight">
+      <h2>Dica</h2>
+      <br>
+      <p>Verbo normal → antes</p>
+      <br>
+      <p>Verbo to be → depois</p>
+    </div>
+  </div>
+</div>
+
+<div id="math" class="page">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <div class="lesson">
+    <h1>Mathematics</h1>
+    <p class="subtitle">Basic math in English</p>
+
+    <div class="box">
+      <h2>Operações Básicas</h2>
+      <br>
+      <ul>
+        <li><b>+</b> → plus (pleus)</li>
+        <br>
+        <li><b>-</b> → minus (maineus)</li>
+        <br>
+        <li><b>×</b> → times / multiplied by (taims / moltiplaied bai)</li>
+        <br>
+        <li><b>÷</b> → divided by (divaided bai)</li>
+        <br>
+        <li><b>=</b> → equals (iquals)</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Exemplos:</h2>
+      <br>
+      <ul>
+        <li>2 + 2 = 4 → <b>Two plus two equals four</b></li>
+        <br>
+        <li>5 - 3 = 2 → <b>Five minus three equals two</b></li>
+        <br>
+        <li>4 × 3 = 12 → <b>Four times three equals twelve</b></li>
+        <br>
+        <li>10 ÷ 2 = 5 → <b>Ten divided by two equals five</b></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Frações</h2>
+      <br>
+      <ul>
+        <li>1/2 → one half</li>
+        <br>
+        <li>1/3 → one third</li>
+        <br>
+        <li>1/4 → one quarter</li>
+        <br>
+        <li>3/4 → three quarters</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Decimais</h2>
+      <br>
+      <ul>
+        <li>0.5 → zero point five</li>
+        <br>
+        <li>1.2 → one point two</li>
+        <br>
+        <li>3.14 → three point one four</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Porcentagem</h2>
+      <br>
+      <ul>
+        <li>50% → fifty percent</li>
+        <br>
+        <li>100% → one hundred percent</li>
+      </ul>
+    </div>
+
+    <div class="box highlight">
+      <h2>Dica</h2>
+      <br>
+      <p>Para números decimais em inglês, usamos <b>point</b> para separar a parte inteira da parte decimal.</p>
+      <br>
+      <p>Exemplo: 10.30 → ten point three zero</p>
+      <br>
+      <p>Para a parte decimal, lemos cada dígito individualmente, nunca inteiros.</p>
+      <br>
+      <p>Exemplo: 2.20 → two point two zero</p>
+    </div>
+  </div>
+</div>
+
+<div id="dates" class="page">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <div class="lesson">
+    <h1>Dates</h1>
+    <p class="subtitle">How to say dates in English</p>
+
+    <!-- ESTRUTURA -->
+    <div class="box">
+      <h2>📌 Structure</h2>
+      <p>Month + day (ordinal)</p>
+
+      <ul>
+        <li>March 5 → March fifth</li>
+        <li>April 10 → April tenth</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Números Ordinais</h2>
+      <br>
+      <ul>
+        <li>1st → first (feurst)</li>
+        <br>
+        <li>2nd → second</li>
+        <br>
+        <li>3rd → third (theurd)</li>
+        <br>
+        <li>4th → fourth (forf)</li>
+        <br>
+        <li>5th → fifth</li>
+        <br>
+        <li>10th → tenth</li>
+        <br>
+        <li>20th → twentieth</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Exemplos:</h2>
+      <br>
+      <ul>
+        <li>My birthday is on March fifth</li>
+        <br>
+        <li>Today is April tenth</li>
+        <br>
+        <li>Christmas is on December twenty-fifth</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Perguntas sobre datas</h2>
+      <br>
+      <ul>
+        <li>What is the date today?</li>
+        <br>
+        <li>When is your birthday?</li>
+      </ul>
+    </div>
+
+    <div class="box highlight">
+      <h2>Dica</h2>
+      <br>
+      <p>Para falar sobre o ano, usamos <b>in</b>.</p>
+      <br>
+      <p>Exemplo: I was born in 1996</p>
+      <br>
+      <p>Para falar o ano, separamos o número em <b>duas partes</b>.</p>
+      <br>
+      <p>Exemplo: 1996 → 19 | 96 → nineteen ninety-six</p>
+    </div>
+  </div>
+</div>
+<div id="time" class="page">
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <div class="lesson">
+    <h1>Tempo/Horas</h1>
+    <p class="subtitle">Como falar as horas?</p>
+
+    <div class="box">
+      <h2>Horas Básicas</h2>
+      <br>
+      <ul>
+        <li>1:00 → one o'clock</li>
+        <br>
+        <li>2:00 → two o'clock</li>
+        <br>
+        <li>5:00 → five o'clock</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Minutos</h2>
+      <br>
+      <ul>
+        <li>2:10 → two ten</li>
+        <br>
+        <li>3:15 → three fifteen</li>
+        <br>
+        <li>4:30 → four thirty</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Past / To</h2>
+      <br>
+      <ul>
+        <li>3:15 → quarter past three</li>
+        <br>
+        <li>3:30 → half past three</li>
+        <br>
+        <li>3:45 → quarter to four</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>AM / PM</h2>
+      <br>
+      <ul>
+        <li>AM → morning</li>
+        <br>
+        <li>PM → afternoon / night</li>
+      </ul>
+      <br>
+      <ul>
+        <li>8:00 AM → eight in the morning</li>
+        <br>
+        <li>8:00 PM → eight at night</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h2>Perguntas sobre o tempo</h2>
+      <br>
+      <ul>
+        <li>What time is it?</li>
+        <br>
+        <li>What time do you wake up?</li>
+      </ul>
+    </div>
+
+    <div class="box highlight">
+      <h2>Dica</h2>
+      <br>
+      <p>Usamos <b>at</b> quando falamos sobre o tempo/horas.</p>
+      <br>
+      <p>at 5:00, at 8 PM</p>
     </div>
   </div>
 </div>
