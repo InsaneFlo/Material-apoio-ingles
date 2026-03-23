@@ -1,0 +1,202 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  background: linear-gradient(135deg, #f8fbff, #d8e6fc);
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 36px;
+  font-family: 'Pacifico', cursive;
+  color: #2c3e50;
+}
+
+/* GRID */
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #e0e6f0;
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* TÍTULO DO CARD */
+.card h3 {
+  font-size: 22px;
+  font-family: 'Pacifico', cursive;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+/* DESCRIÇÃO DO CARD */
+.card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* PAGE */
+.page {
+  display: none;
+  padding: 20px;
+}
+
+/* BOTÃO VOLTAR */
+.back-btn {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: #4a90e2;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 1px;
+}
+
+.back-btn:hover {
+  background: #357abd;
+}
+
+/* CONTEÚDO GERAL */
+.content {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ========================= */
+/* 🔥 NOVO: ESTILO DAS AULAS */
+/* ========================= */
+
+.lesson {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* TÍTULO DA AULA */
+.lesson h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+/* SUBTÍTULO */
+.subtitle {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* CAIXAS DE CONTEÚDO */
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e6f0;
+}
+
+/* TÍTULO DAS CAIXAS */
+.box h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #4a90e2;
+}
+
+/* LISTAS */
+.box ul {
+  padding-left: 20px;
+}
+
+.box li {
+  margin-bottom: 8px;
+}
+
+/* CAIXA DE DESTAQUE */
+.highlight {
+  background: #fff8e1;
+  border-left: 5px solid #f5c518;
+}
+
+#alphabet .alphabet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+#alphabet .alphabet-grid p {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.clickable:hover {
+  color: #4a90e2;
+}
+
+button {
+  margin-left: 8px;
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #357abd;
+}
+
+@media(max-width: 600px) {
+  #alphabet .alphabet-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  header {
+    font-size: 28px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .lesson h1 {
+    font-size: 26px;
+  }
+}
