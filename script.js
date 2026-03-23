@@ -135,6 +135,7 @@ function loadQuestion() {
     btn.innerText = answer;
 
     btn.onclick = () => checkAnswer(index);
+    btn.classList.add("answer-btn");
 
     answersDiv.appendChild(btn);
   });
