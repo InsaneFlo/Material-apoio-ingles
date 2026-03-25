@@ -1,3 +1,46 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBtI5v8Hoehotxm5csnncnWP7g0G5lCZig",
+  authDomain: "material-de-apoio-do-flo.firebaseapp.com",
+  projectId: "material-de-apoio-do-flo",
+  storageBucket: "material-de-apoio-do-flo.firebasestorage.app",
+  messagingSenderId: "940145523974",
+  appId: "1:940145523974:web:f8fd7e685254c43eaeb287",
+  measurementId: "G-W7LL67WKYW"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById("login-page").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+  } else {
+    document.getElementById("login-page").style.display = "block";
+    document.getElementById("conteudo").style.display = "none";
+  }
+});
+
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => {
+    })
+    .catch((error) => {
+      alert("Erro ao entrar: " + error.message);
+    });
+}
+
 const questions = [
   { question: "What is the past of 'go'?", answers: ["goed", "went", "goes"], correct: 1 },
   { question: "She ____ every day", answers: ["work", "works", "worked"], correct: 1 },
@@ -45,7 +88,7 @@ const questions = [
 
   { question: "Does he ____?", answers: ["works", "work", "worked"], correct: 1 },
 
-  { question: "I am ____ tired (", answers: ["always", "never", "sometimes"], correct: 0 },
+  { question: "I am ____ tired", answers: ["always", "never", "sometimes"], correct: 0 },
 
   { question: "They ____ late (Nunca)", answers: ["are never", "never are", "are always"], correct: 0 },
 
@@ -88,6 +131,7 @@ const questions = [
 
 function openPage(pageId) {
   document.getElementById('menu').style.display = 'none';
+  document.querySelector('.quiz-section').style.display = 'none';
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   document.getElementById(pageId).style.display = 'block';
 }
@@ -95,14 +139,13 @@ function openPage(pageId) {
 function goBack() {
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   document.getElementById('menu').style.display = 'grid';
+  document.querySelector('.quiz-section').style.display = 'block';
 }
 
 function speak(text) {
   const utterance = new SpeechSynthesisUtterance(text);
 
   const voices = speechSynthesis.getVoices();
-
-  console.log(voices.map(v => v.name));
 
   const voice =
     voices.find(v => v.name.includes('Google')) ||
@@ -182,3 +225,8 @@ function shuffleArray(array) {
 
 shuffleArray(questions);
 loadQuestion();
+
+window.openPage = openPage;
+window.goBack = goBack;
+window.speak = speak;
+window.login = login;
