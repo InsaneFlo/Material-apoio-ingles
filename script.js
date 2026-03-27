@@ -1,7 +1,7 @@
 let currentQuestion = 0;
 let score = 0;
 let timer;
-let timeLeft = 10;
+let timeLeft = 15;
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -54,7 +54,7 @@ const questions = [
   { question: "I ____ yesterday", answers: ["work", "worked", "works"], correct: 1 },
   
   { question: "He ____ pizza", answers: ["like", "likes", "liked"], correct: 1 },
-  
+
   { question: "They ____ to school yesterday", answers: ["go", "went", "goes"], correct: 1 },
 
   { question: "Which is correct?", answers: ["He go", "He goes", "He going"], correct: 1 },
