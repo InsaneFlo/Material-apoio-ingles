@@ -1,3 +1,8 @@
+let currentQuestion = 0;
+let score = 0;
+let timer;
+let timeLeft = 10;
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
@@ -43,35 +48,49 @@ function login() {
 
 const questions = [
   { question: "What is the past of 'go'?", answers: ["goed", "went", "goes"], correct: 1 },
+
   { question: "She ____ every day", answers: ["work", "works", "worked"], correct: 1 },
+
   { question: "I ____ yesterday", answers: ["work", "worked", "works"], correct: 1 },
+  
   { question: "He ____ pizza", answers: ["like", "likes", "liked"], correct: 1 },
+  
   { question: "They ____ to school yesterday", answers: ["go", "went", "goes"], correct: 1 },
 
   { question: "Which is correct?", answers: ["He go", "He goes", "He going"], correct: 1 },
+
   { question: "She ____ TV now", answers: ["watch", "is watching", "watched"], correct: 1 },
+
   { question: "We ____ soccer last week", answers: ["play", "played", "plays"], correct: 1 },
 
   { question: "Choose the correct preposition: ___ Monday", answers: ["in", "on", "at"], correct: 1 },
+
   { question: "Choose: ___ 5 PM", answers: ["on", "at", "in"], correct: 1 },
+
   { question: "Choose: ___ January", answers: ["on", "at", "in"], correct: 2 },
 
   { question: "What is 'always'?", answers: ["Nunca", "Sempre", "Às vezes"], correct: 1 },
+
   { question: "What is 'never'?", answers: ["Sempre", "Nunca", "Frequentemente"], correct: 1 },
 
   { question: "He ____ plays soccer (Sempre)", answers: ["always", "never", "usually"], correct: 0 },
 
   { question: "What is 2 + 2?", answers: ["four", "five", "three"], correct: 0 },
+
   { question: "What is 10 - 3?", answers: ["seven", "six", "eight"], correct: 0 },
+
   { question: "What is 3 × 2?", answers: ["five", "six", "four"], correct: 1 },
 
   { question: "How do you say 1/2?", answers: ["one half", "one second", "one part"], correct: 0 },
 
   { question: "Choose correctly: ___ apple", answers: ["a", "an", "the"], correct: 1 },
+
   { question: "Choose correctly: ___ car", answers: ["a", "an", "the"], correct: 0 },
 
   { question: "big → ? (Comparative)", answers: ["biger", "bigger", "biggest"], correct: 1 },
+
   { question: "good → ? (Comparative)", answers: ["better", "gooder", "best"], correct: 0 },
+
   { question: "fast → ? (Comparative)", answers: ["faster", "fastest", "more fast"], correct: 0 },
 
   { question: "This is the ____ car", answers: ["fast", "faster", "fastest"], correct: 2 },
@@ -88,7 +107,7 @@ const questions = [
 
   { question: "Does he ____?", answers: ["works", "work", "worked"], correct: 1 },
 
-  { question: "I am ____ tired", answers: ["always", "never", "sometimes"], correct: 0 },
+  { question: "I am ____ tired (Nunca)", answers: ["always", "never", "sometimes"], correct: 1 },
 
   { question: "They ____ late (Nunca)", answers: ["are never", "never are", "are always"], correct: 0 },
 
@@ -126,7 +145,108 @@ const questions = [
 
   { question: "This is the ____", answers: ["best", "better", "good"], correct: 0 },
 
-  { question: "I ____ English now", answers: ["study", "am studying", "studied"], correct: 1 }
+  { question: "I ____ English now", answers: ["study", "am studying", "studied"], correct: 1 },
+
+  { question: "She ____ a shower every morning", answers: ["take", "takes", "took"], correct: 1 },
+
+  { question: "I ____ coffee right now", answers: ["drink", "am drinking", "drank"], correct: 1 },
+  { question: "We ____ to the beach last summer", answers: ["go", "goes", "went"], correct: 2 },
+
+  { question: "He ____ his homework yesterday", answers: ["finish", "finishes", "finished"], correct: 2 },
+
+  { question: "They ____ English every day", answers: ["practice", "practices", "practiced"], correct: 0 },
+
+  { question: "What is the past of 'eat'?", answers: ["eated", "ate", "eat"], correct: 1 },
+
+  { question: "What is the past of 'have'?", answers: ["haved", "has", "had"], correct: 2 },
+
+  { question: "What is the past of 'see'?", answers: ["seed", "saw", "seen"], correct: 1 },
+
+  { question: "What is the past of 'buy'?", answers: ["buyed", "bought", "buys"], correct: 1 },
+
+  { question: "What is the past of 'drink'?", answers: ["drinked", "drunk", "drank"], correct: 2 },
+
+  { question: "She ____ not like vegetables", answers: ["do", "does", "did"], correct: 1 },
+
+  { question: "Do you ____ soccer?", answers: ["likes", "like", "liked"], correct: 1 },
+
+  { question: "____ he work on Sundays?", answers: ["Do", "Does", "Did"], correct: 1 },
+
+  { question: "____ they eat dinner together?", answers: ["Does", "Did", "Do"], correct: 2 },
+
+  { question: "She ____ reading a book now", answers: ["is", "are", "am"], correct: 0 },
+
+  { question: "Choose correctly: ___ hour", answers: ["a", "an", "the"], correct: 1 },
+
+  { question: "Choose correctly: ___ university", answers: ["an", "a", "aan"], correct: 1 },
+
+  { question: "Choose correctly: ___ umbrella", answers: ["a", "an", "ella, ella"], correct: 1 },
+
+  { question: "Choose correctly: ___ book", answers: ["an", "a", "the"], correct: 1 },
+
+  { question: "Choose correctly: ___ engineer", answers: ["a", "an", "the"], correct: 1 },
+
+  { question: "This is ____ than my old phone (good)", answers: ["gooder", "better", "best"], correct: 1 },
+
+  { question: "She is ____ in the class (tall)", answers: ["taller", "tallest", "the tallest"], correct: 2 },
+
+  { question: "This exercise is ____ than the last one (easy)", answers: ["easier", "more easy", "easiest"], correct: 0 },
+
+  { question: "That car is ____ of all (expensive)", answers: ["more expensive", "the most expensive", "expensiver"], correct: 1 },
+
+  { question: "He runs ____ than me (fast)", answers: ["more fast", "fastest", "faster"], correct: 2 },
+
+  { question: "Choose: ___ the morning", answers: ["on", "at", "in"], correct: 2 },
+
+  { question: "Choose: ___ night", answers: ["in", "on", "at"], correct: 2 },
+
+  { question: "Choose: ___ the weekend", answers: ["in", "at", "on"], correct: 2 },
+
+  { question: "Choose: ___ Christmas", answers: ["in", "on", "at"], correct: 1 },
+
+  { question: "Choose: ___ 2010", answers: ["on", "at", "in"], correct: 2 },
+
+  { question: "What is 'rarely'?", answers: ["Sempre", "Raramente", "Nunca"], correct: 1 },
+
+  { question: "What is 'usually'?", answers: ["Às vezes", "Nunca", "Geralmente"], correct: 2 },
+
+  { question: "I ____ brush my teeth before bed (sempre)", answers: ["never", "always", "rarely"], correct: 1 },
+
+  { question: "She is ____ happy (geralmente)", answers: ["never", "rarely", "usually"], correct: 2 },
+
+  { question: "He ____ forgets his keys (frequentemente)", answers: ["never", "often", "rarely"], correct: 1 },
+
+  { question: "What is 4 × 5?", answers: ["twenty", "fifteen", "forty"], correct: 0 },
+
+  { question: "What is 20 ÷ 4?", answers: ["six", "four", "five"], correct: 2 },
+
+  { question: "What is 1/4?", answers: ["one half", "one quarter", "one third"], correct: 1 },
+
+  { question: "What is 0.25?", answers: ["zero point five", "zero point two five", "zero two five"], correct: 1 },
+
+  { question: "What is 75%?", answers: ["seventy-five percent", "seven five percent", "seventy percent"], correct: 0 },
+
+  { question: "June 21st is...", answers: ["June twenty-one", "June twenty-oneth", "June twenty-first"], correct: 2 },
+
+  { question: "What time is 7:15?", answers: ["half past seven", "quarter past seven", "seven past quarter"], correct: 1 },
+
+  { question: "What time is 9:45?", answers: ["quarter past nine", "quarter to ten", "half past nine"], correct: 1 },
+
+  { question: "wash → ? (3rd person)", answers: ["washs", "washes", "washies"], correct: 1 },
+
+  { question: "fix → ? (3rd person)", answers: ["fixs", "fixies", "fixes"], correct: 2 },
+
+  { question: "try → ? (3rd person)", answers: ["trys", "tries", "tryes"], correct: 1 },
+
+  { question: "Which is correct?", answers: ["She didn't went", "She didn't go", "She didn't goes"], correct: 1 },
+
+  { question: "Which is correct?", answers: ["They are never late", "They never are late", "Never they are late"], correct: 0 },
+
+  { question: "Which is correct?", answers: ["I am study now", "I studying now", "I am studying now"], correct: 2 },
+
+  { question: "Which is correct?", answers: ["He buyed a car", "He bought a car", "He buys a car yesterday"], correct: 1 },
+
+  { question: "Which is correct?", answers: ["Does she plays?", "Do she play?", "Does she play?"], correct: 2 },
 ];
 
 function openPage(pageId) {
@@ -163,49 +283,130 @@ function speak(text) {
   speechSynthesis.speak(utterance);
 }
 
-let currentQuestion = 0;
+function startQuiz() {
+  document.getElementById("start-btn").style.display = "none";
+  document.getElementById("answers").style.display = "block";
+  document.getElementById("progress").style.display = "block";
+  document.getElementById("timer").style.display = "block";
+  document.getElementById("question").style.display = "block";
+
+  currentQuestion = 0;
+  score = 0;
+
+  shuffleArray(questions);
+  loadQuestion();
+}
 
 function loadQuestion() {
+  clearInterval(timer);
+
+  timeLeft = 10;
+  document.getElementById("timer").innerText = `⏳ ${timeLeft}s`;
+
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById("timer").innerText = `⏳ ${timeLeft}s`;
+
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      checkAnswer(-1);
+    }
+  }, 1000);
+
   const q = questions[currentQuestion];
 
   document.getElementById("question").innerText = q.question;
+  document.getElementById("progress").innerText = `${currentQuestion}/${questions.length}`;
+
+  let shuffledAnswers = q.answers.map((text, index) => ({ text, index }));
+
+  for (let i = shuffledAnswers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledAnswers[i], shuffledAnswers[j]] = [shuffledAnswers[j], shuffledAnswers[i]];
+  }
 
   const answersDiv = document.getElementById("answers");
   answersDiv.innerHTML = "";
 
-  q.answers.forEach((answer, index) => {
+  shuffledAnswers.forEach(({ text, index }) => {
     const btn = document.createElement("button");
-    btn.innerText = answer;
-
+    btn.innerText = text;
     btn.onclick = () => checkAnswer(index);
     btn.classList.add("answer-btn");
 
     answersDiv.appendChild(btn);
   });
+
+  document.getElementById("next-btn").style.display = "none";
 }
 
 function checkAnswer(selected) {
-  const correct = questions[currentQuestion].correct;
+  clearInterval(timer);
+
+  document.querySelectorAll(".answer-btn").forEach(btn => btn.disabled = true);
+  const correctIndex = questions[currentQuestion].correct;
+  const correctAnswer = questions[currentQuestion].answers[correctIndex];
+
   const feedback = document.getElementById("feedback");
 
-  if (selected === correct) {
+  if (selected === correctIndex) {
     feedback.innerText = "✅ Correct!";
+    score++;
     launchConfetti();
+  } else if (selected === -1) {
+    feedback.innerText = `⏰ Time's up! Correct: ${correctAnswer}`;
   } else {
-    feedback.innerText = "❌ Wrong!";
+    feedback.innerText = `❌ Wrong! Correct: ${correctAnswer}`;
   }
 
-  setTimeout(() => {
-    currentQuestion++;
+  document.getElementById("next-btn").style.display = "block";
+}
 
-    if (currentQuestion < questions.length) {
-      feedback.innerText = "";
-      loadQuestion();
-    } else {
-      document.getElementById("question").innerText = "🎉 Finished!";
-      document.getElementById("answers").innerHTML = "";
-    }
-  }, 1000);
+function showResult() {
+  document.getElementById("question").innerText = "🎉 Finished!";
+  document.getElementById("answers").innerHTML = "";
+
+  document.getElementById("feedback").innerText =
+    `You got ${score} out of ${questions.length} 🎯`;
+
+  const nextBtn = document.getElementById("next-btn");
+
+  nextBtn.style.display = "block";
+  nextBtn.innerText = "Restart";
+  nextBtn.onclick = restartQuiz;
+}
+
+function nextQuestion() {
+  currentQuestion++;
+
+  const feedback = document.getElementById("feedback");
+  feedback.innerText = "";
+
+  if (currentQuestion < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  score = 0;
+
+  document.getElementById("feedback").innerText = "";
+  document.getElementById("answers").innerHTML = "";
+
+  const nextBtn = document.getElementById("next-btn");
+
+  nextBtn.style.display = "none";
+  nextBtn.innerText = "Next";
+  nextBtn.onclick = nextQuestion;
+
+  document.getElementById("start-btn").style.display = "block";
+
+  document.getElementById("progress").style.display = "none";
+  document.getElementById("timer").style.display = "none";
+  document.getElementById("question").style.display = "none";
 }
 
 function launchConfetti() {
@@ -223,10 +424,10 @@ function shuffleArray(array) {
   }
 }
 
-shuffleArray(questions);
-loadQuestion();
-
 window.openPage = openPage;
 window.goBack = goBack;
 window.speak = speak;
 window.login = login;
+window.startQuiz = startQuiz;
+window.nextQuestion = nextQuestion;
+window.restartQuiz = restartQuiz;
