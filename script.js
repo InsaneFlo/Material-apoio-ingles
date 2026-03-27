@@ -300,7 +300,7 @@ function startQuiz() {
 function loadQuestion() {
   clearInterval(timer);
 
-  timeLeft = 10;
+  timeLeft = 15;
   document.getElementById("timer").innerText = `⏳ ${timeLeft}s`;
 
   timer = setInterval(() => {
