@@ -252,6 +252,7 @@ const questions = [
 function openPage(pageId) {
   document.getElementById('menu').style.display = 'none';
   document.querySelector('.quiz-section').style.display = 'none';
+  document.querySelector('.vocab-section').style.display = 'none';
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   document.getElementById(pageId).style.display = 'block';
 }
@@ -259,6 +260,7 @@ function openPage(pageId) {
 function goBack() {
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   document.getElementById('menu').style.display = 'grid';
+  document.querySelector('.vocab-section').style.display = 'block';
   document.querySelector('.quiz-section').style.display = 'block';
 }
 
